@@ -8,14 +8,14 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.keymap.set("n", "<Leader>s", ":write<CR>", { silent = true })
 
 -- Move normally between wrapped lines
-vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set("n", "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Move to first symbol on the line
-vim.keymap.set("n", "H", "^")
+vim.keymap.set("n", "<A-Left>", "^", { silent = true })
 
 -- Move to last symbol of the line
-vim.keymap.set("n", "L", "$")
+vim.keymap.set("n", "<A-Right>", "$", { silent = true })
 
 -- Shift + q - Quit
 vim.keymap.set("n", "Q", "<C-W>q")
@@ -26,10 +26,10 @@ vim.keymap.set("n", "vv", "<C-W>v")
 vim.keymap.set("n", "ss", "<C-W>s")
 
 -- Quick jumping between splits
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-Up>", "<C-w>k", { silent = true })
+vim.keymap.set("n", "<C-Down>", "<C-w>j", { silent = true })
+vim.keymap.set("n", "<C-Left>", "<C-w>h", { silent = true })
+vim.keymap.set("n", "<C-Right>", "<C-w>l", { silent = true })
 
 -- Indenting in visual mode (tab/shift+tab)
 vim.keymap.set("v", "<Tab>", ">gv")
@@ -45,4 +45,3 @@ vim.keymap.set("n", "<Leader>h", ":noh<CR>", { silent = true })
 
 -- Fixes pasting after visual selection.
 vim.keymap.set("v", "p", '"_dP')
-
