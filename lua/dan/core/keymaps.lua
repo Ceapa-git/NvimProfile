@@ -26,10 +26,10 @@ vim.keymap.set("n", "vv", "<C-W>v")
 vim.keymap.set("n", "ss", "<C-W>s")
 
 -- Quick jumping between splits
-vim.keymap.set("n", "<C-Up>", "<C-w>k", { silent = true })
-vim.keymap.set("n", "<C-Down>", "<C-w>j", { silent = true })
-vim.keymap.set("n", "<C-Left>", "<C-w>h", { silent = true })
-vim.keymap.set("n", "<C-Right>", "<C-w>l", { silent = true })
+vim.keymap.set("n", "<C-S-Up>", "<C-w>k", { silent = true })
+vim.keymap.set("n", "<C-S-Down>", "<C-w>j", { silent = true })
+vim.keymap.set("n", "<C-S-Left>", "<C-w>h", { silent = true })
+vim.keymap.set("n", "<C-S-Right>", "<C-w>l", { silent = true })
 
 -- Indenting in visual mode (tab/shift+tab)
 vim.keymap.set("v", "<Tab>", ">gv")
