@@ -122,6 +122,12 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- configure clang server
+		lspconfig["clangd"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		lspconfig.jdtls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
