@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+-- Esc - exit terminal mode
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
 
 -- Keymaps for better default experience
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })

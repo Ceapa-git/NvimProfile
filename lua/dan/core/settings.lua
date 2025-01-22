@@ -79,4 +79,3 @@ vim.opt.gdefault = true
 
 -- Lazy redraw
 vim.o.lazyredraw = true
-
