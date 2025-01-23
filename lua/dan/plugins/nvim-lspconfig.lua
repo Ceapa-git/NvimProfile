@@ -124,8 +124,10 @@ return {
 
 		-- configure clang server
 		lspconfig["clangd"].setup({
+			cmd = { "clangd", "--compile-commands-dir=build" },
 			capabilities = capabilities,
 			on_attach = on_attach,
+			root_dir = require("lspconfig").util.root_pattern("compile_commands.json", ".git"),
 		})
 
 		lspconfig.jdtls.setup({
