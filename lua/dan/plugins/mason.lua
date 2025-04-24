@@ -20,6 +20,8 @@ return {
 				"html",
 				"cssls",
 				"clangd",
+				"yamlls",
+				"dockerls",
 			},
 			automatic_installation = true,
 		})

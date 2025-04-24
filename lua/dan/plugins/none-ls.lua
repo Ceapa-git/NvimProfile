@@ -18,6 +18,16 @@ return {
 			root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json"),
 			sources = {
 				formatting.prettierd.with({
+					filetypes = {
+						"javascript",
+						"javascriptreact",
+						"typescript",
+						"typescriptreact",
+						"json",
+						"css",
+						"html",
+						"yaml",
+					},
 					disabled_filetypes = {
 						"markdown",
 						"md",
@@ -28,6 +38,14 @@ return {
 					condition = function(utils)
 						return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" })
 					end,
+				}),
+				formatting.google_java_format.with({
+					command = "java",
+					args = { "-jar", vim.fn.expand("~/.local/bin/google-java-format.jar"), "-" },
+					filetypes = { "java" },
+				}),
+				diagnostics.hadolint.with({
+					filetypes = { "dockerfile" },
 				}),
 			},
 			-- configure format on save

@@ -19,10 +19,8 @@ return {
 		})
 
 		-- Add border to floating window
-		vim.lsp.handlers["textDocument/signatureHelp"] =
-			vim.lsp.with(vim.lsp.handlers.hover, { border = "single", silent = true })
-		vim.lsp.handlers["textDocument/hover"] =
-			vim.lsp.with(vim.lsp.handlers.hover, { border = "single", silend = true })
+		vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 
 		-- Make float window transparent start
 
@@ -130,7 +128,7 @@ return {
 			root_dir = require("lspconfig").util.root_pattern("compile_commands.json", ".git"),
 		})
 
-		lspconfig.jdtls.setup({
+		lspconfig["jdtls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			-- A basic root_dir pattern that works for Maven/Gradle projects
@@ -138,6 +136,29 @@ return {
 			-- You could specify `cmd` here if needed:
 			-- cmd = { "java-lsp.sh" },
 			-- or rely on the default from Mason.
+		})
+
+		-- configure yaml server
+		lspconfig["yamlls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = {
+				yaml = {
+					schemas = {
+						["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose*.yml",
+						["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+					},
+					validate = true,
+					hover = true,
+					completion = true,
+				},
+			},
+		})
+
+		-- configure dockerls server
+		lspconfig["dockerls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
 		})
 	end,
 }
