@@ -9,6 +9,11 @@ return {
 		local lspconfig = require("lspconfig")
 		local util = require("lspconfig.util")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+		local mason_registry = require("mason-registry")
+		local jdtls_path = mason_registry.get_package("jdtls"):get_install_path()
+		local lombok_path = jdtls_path .. "/lombok.jar"
+		local launcher_jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+		local workspace_dir = vim.fn.stdpath("cache") .. "/jdtls/workspace"
 
 		-- Disable inline error messages
 		vim.diagnostic.config({
@@ -136,6 +141,45 @@ return {
 			-- You could specify `cmd` here if needed:
 			-- cmd = { "java-lsp.sh" },
 			-- or rely on the default from Mason.
+			settings = {
+				java = {
+					configuration = {
+						updateBuildConfiguration = "interactive",
+						annotaruntimes = {
+							{
+								name = "JavaSE-24",
+								path = "/home/dan/.sdkman/candidates/java/current",
+							},
+						},
+						tionProcessing = {
+							enabled = true,
+						},
+					},
+					eclipse = {
+						downloadSources = true,
+					},
+					maven = {
+						downloadSources = true,
+					},
+					references = {
+						includeDecompiledSources = true,
+					},
+					contentProvider = { preferred = "fernflower" },
+					format = {
+						enabled = true,
+					},
+				},
+			},
+			cmd = {
+				"java",
+				"-javaagent:" .. lombok_path,
+				"-jar",
+				launcher_jar,
+				"-configuration",
+				jdtls_path .. "/config_linux",
+				"-data",
+				workspace_dir,
+			},
 		})
 
 		-- configure yaml server
