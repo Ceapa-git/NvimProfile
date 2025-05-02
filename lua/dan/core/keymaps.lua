@@ -47,3 +47,7 @@ vim.keymap.set("n", "<Leader>h", ":noh<CR>", { silent = true })
 
 -- Fixes pasting after visual selection.
 vim.keymap.set("v", "p", '"_dP')
+
+-- Select all
+vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select entire file" })
+vim.keymap.set("v", "<C-a>", "<Esc>ggVG", { desc = "Reselect entire file" })
