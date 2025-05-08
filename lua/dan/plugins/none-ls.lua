@@ -44,6 +44,9 @@ return {
 					args = { "-jar", vim.fn.expand("~/.local/bin/google-java-format.jar"), "-" },
 					filetypes = { "java" },
 				}),
+				formatting.mix.with({
+					filetypes = { "elixir" },
+				}),
 				diagnostics.hadolint.with({
 					filetypes = { "dockerfile" },
 				}),

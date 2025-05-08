@@ -22,6 +22,7 @@ return {
 				"clangd",
 				"yamlls",
 				"dockerls",
+				"elixirls",
 			},
 			automatic_installation = true,
 		})

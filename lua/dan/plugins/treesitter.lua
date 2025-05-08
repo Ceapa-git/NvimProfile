@@ -21,6 +21,7 @@ return {
 				"cpp",
 				"angular",
 				"java",
+				"elixir",
 			},
 			indent = { enable = true },
 			highlight = {

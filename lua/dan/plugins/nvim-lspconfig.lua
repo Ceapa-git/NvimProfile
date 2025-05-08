@@ -204,5 +204,12 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+
+		-- configure elixirls server
+		lspconfig["elixirls"].setup({
+			cmd = { require("mason-registry").get_package("elixir-ls"):get_install_path() .. "/language_server.sh" },
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 	end,
 }
