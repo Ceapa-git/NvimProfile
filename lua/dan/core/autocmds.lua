@@ -12,3 +12,22 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 		vim.cmd("terminal mvn compile")
 	end,
 })
+
+vim.filetype.add({
+	extension = {
+		vert = "glsl",
+		frag = "glsl",
+	},
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = { "*.glsl", "*.vert", "*.frag", "*.comp" },
+	callback = function()
+		vim.lsp.buf.format({
+			async = false,
+			filter = function(client)
+				return client.name == "glslls"
+			end,
+		})
+	end,
+})

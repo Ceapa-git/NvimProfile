@@ -22,6 +22,7 @@ return {
 				"angular",
 				"java",
 				"elixir",
+				"glsl",
 			},
 			indent = { enable = true },
 			highlight = {

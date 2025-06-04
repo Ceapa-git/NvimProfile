@@ -23,6 +23,7 @@ return {
 				"yamlls",
 				"dockerls",
 				"elixirls",
+				"glslls",
 			},
 			automatic_installation = true,
 		})
