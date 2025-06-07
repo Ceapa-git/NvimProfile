@@ -212,18 +212,12 @@ return {
 			on_attach = on_attach,
 		})
 
-		-- configure glslls
-		lspconfig["glslls"].setup({
+		-- configure glsl_analyzer
+		lspconfig["glsl_analyzer"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = { "glsl", "vert", "frag" },
-			root_dir = util.root_pattern(".git", "."),
-			settings = {
-				glslls = {
-					glslangValidatorPath = "glslangValidator",
-					defaultFileEncoding = "utf-8",
-				},
-			},
+			filetypes = { "glsl", "vert", "frag", "comp" },
+			root_dir = require("lspconfig").util.root_pattern(".git", "."),
 		})
 	end,
 }
