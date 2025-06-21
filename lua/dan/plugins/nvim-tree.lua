@@ -126,11 +126,5 @@ return {
 		)
 		vim.keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
 		vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
-		local api = require("nvim-tree.api")
-
-		-- default mappings you want
-		vim.keymap.set("n", "c", api.fs.copy.node, { desc = "Copy" })
-		vim.keymap.set("n", "x", api.fs.cut, { desc = "Cut" })
-		vim.keymap.set("n", "p", api.fs.paste, { desc = "Paste" })
 	end,
 }
