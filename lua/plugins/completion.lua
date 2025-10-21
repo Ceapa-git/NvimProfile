@@ -29,7 +29,7 @@ return {
     local lspkind = require("lspkind")
 
     local function has_words_before()
-      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+      local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
       if col == 0 then return false end
       local text = vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]
       return text:sub(col, col):match("%s") == nil
