@@ -1,19 +1,18 @@
 return {
-  "bluz71/vim-moonfly-colors",
-  name = "moonfly",
+  "folke/tokyonight.nvim",
   lazy = false,
   priority = 1000,
-  opts = {},
-  config = function()
-    -- Apply the colorscheme first
-    vim.cmd.colorscheme("moonfly")
-
-    -- Make background transparent
-    local groups = {
-      "Normal", "NonText", "LineNr", "SignColumn", "EndOfBuffer"
-    }
-    for _, group in ipairs(groups) do
-      vim.api.nvim_set_hl(0, group, { bg = "none" })
-    end
+  opts = {
+    style = "night",        -- "storm", "moon", "night", or "day"
+    transparent = true,     -- make background transparent
+    terminal_colors = true, -- apply colors to terminal
+    styles = {
+      sidebars = "transparent",
+      floats = "transparent",
+    },
+  },
+  init = function()
+    vim.cmd.colorscheme("tokyonight")
   end,
 }
+

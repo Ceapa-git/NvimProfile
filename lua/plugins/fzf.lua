@@ -2,20 +2,22 @@ return {
   "ibhagwan/fzf-lua",
   event = "VeryLazy",
   opts = {
-		colorscheme = "moonfly",
     winopts = {
       fullscreen = true,
       preview = {
         layout = "vertical",
         vertical = "up:45%", -- up|down:size
       },
-      backdrop = 50,
+      backdrop = 0,
     },
     fzf_opts = {
       ["--keep-right"] = "",
       ["--layout"] = "default",
     },
-     fzf_colors = true,
+    fzf_colors = { 
+      true,
+      bg = '-1',
+    },
   },
   keys = {
     { "<C-p>",              function() require("fzf-lua").files() end,                 desc = "Find files" },
