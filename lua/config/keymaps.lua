@@ -8,8 +8,18 @@ vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true, de
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true, desc = "Disable Space key" })
 
 -- Move by visual lines when no count is given
-vim.keymap.set("n", "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Move up (visual line aware)" })
-vim.keymap.set("n", "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, desc = "Move down (visual line aware)" })
+vim.keymap.set(
+	"n",
+	"<Up>",
+	"v:count == 0 ? 'gk' : 'k'",
+	{ expr = true, silent = true, desc = "Move up (visual line aware)" }
+)
+vim.keymap.set(
+	"n",
+	"<Down>",
+	"v:count == 0 ? 'gj' : 'j'",
+	{ expr = true, silent = true, desc = "Move down (visual line aware)" }
+)
 
 -- Jump to line start/end with Alt + arrows
 vim.keymap.set("n", "<A-Left>", "^", { silent = true, desc = "Go to first non-blank in line" })
