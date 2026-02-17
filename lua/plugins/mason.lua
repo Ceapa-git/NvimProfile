@@ -4,7 +4,12 @@ return {
 		ensure_installed = {
 			"lua_ls",
 			"clangd",
-			"stylua",
+			"pylsp",
+			"ruff",
+			"angularls",
+			"ts_ls",
+			"html",
+			"cssls",
 		},
 		automatic_installation = true,
 	},

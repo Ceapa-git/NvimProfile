@@ -5,12 +5,7 @@ return {
 
 	opts = {
 		ensure_installed = {
-			"lua",
-			"c",
-			"cpp",
-			"markdown",
-			"markdown_inline",
-			"glsl",
+			"all",
 		},
 		highlight = {
 			enable = true,

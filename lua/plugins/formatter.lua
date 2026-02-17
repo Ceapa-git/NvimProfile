@@ -5,6 +5,7 @@ return {
 			lua = { "stylua" },
 			c = { "clang-format" },
 			cpp = { "clang-format" },
+			python = { "ruff_format" },
 		},
 		format_on_save = { lsp_fallback = true, timeout_ms = 1000 },
 	},
