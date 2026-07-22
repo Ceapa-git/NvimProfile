@@ -23,7 +23,6 @@ vim.o.timeoutlen = 300 -- Mapped sequence timeout
 vim.o.completeopt = "menuone,noselect" -- Better completion behavior
 vim.opt.splitbelow = true -- Horizontal splits below
 vim.opt.splitright = true -- Vertical splits to the right
-vim.o.lazyredraw = true -- Don’t redraw during macros or scripts
 
 -- File handling
 vim.opt.autoread = true -- Auto reload files changed outside Neovim

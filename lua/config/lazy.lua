@@ -30,3 +30,11 @@ require("lazy").setup({
 		notify = false,
 	},
 })
+
+-- Auto-update plugins on every startup (install/clean/update, no popup)
+vim.api.nvim_create_autocmd("VimEnter", {
+	once = true,
+	callback = function()
+		require("lazy").sync({ show = false })
+	end,
+})
