@@ -27,7 +27,7 @@ return {
 			opts = {
 				-- LSP servers come from mason-lspconfig's ensure_installed above;
 				-- list formatters/tools here that aren't LSP servers
-				ensure_installed = { "stylua", "clang-format" },
+				ensure_installed = { "stylua", "clang-format", "codelldb" },
 				auto_update = true,
 				run_on_start = true,
 				integrations = {

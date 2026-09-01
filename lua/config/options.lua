@@ -52,3 +52,14 @@ vim.opt.gdefault = true -- Substitute globally by default
 
 -- Border for windows
 vim.o.winborder = "rounded"
+
+-- Silence noisy LSP request-panic spam (e.g. rust-analyzer's format! macro
+-- panic while typing) so it doesn't trigger a hit-enter prompt that eats
+-- the next keystroke typed in insert mode.
+local notify = vim.notify
+vim.notify = function(msg, ...)
+	if type(msg) == "string" and msg:match("request handler panicked") then
+		return
+	end
+	notify(msg, ...)
+end
